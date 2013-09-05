@@ -1,0 +1,200 @@
+
+/*==========================================================*/
+/* VARIABLES */
+/*==========================================================*/
+@timeline_width: 2px;
+@display-panePrimary_color: whitesmoke;
+@display-paneSecondary_color: darken(@display-panePrimary_color, 10%);
+
+@contactbar-title_background: rgb(49, 114, 139);
+@contactbar-body_background: lighten(@contactbar-title_background, 10%);
+/*==========================================================*/
+
+/*----------- IMPORTS -------------*/
+@import "mixin";
+@import "bootstrap-3.0.0/less/variables";
+
+.row{
+   margin:0;
+}
+
+
+
+#header{
+   text-align: center;
+   background: rgba(100,150,255,0.8);
+}
+
+#contact-bar{
+   text-shadow: 0px 1px 0px rgba(255,255,255,.3), 0px -1px 0px rgba(0,0,0,.7);
+   .contactpos;
+ 
+   #contact-title{
+      background: @contactbar-title_background;
+      text-align: center;
+   }
+ 
+   #contact-items{
+      background: @contactbar-title_background;
+   }
+ 
+   #social-media{
+      background: @contactbar-title_background;
+      .media-icon-container{
+         padding: 0.5em;
+         box-shadow: inset 0px 1px 0px rgba(255,255,255,.3), inset 0px -1px 0px rgba(0,0,0,0.6), 1px 0px 0px rgba(0,0,0,0.6);
+         border: 1px solid rgba(0,0,0,0.5);
+         .media-icon{
+            border-bottom: 1px solid rgba(255,255,255,.3);
+            border-top: 1px solid rgba(0,0,0,0.6);
+            border-radius: 2px;
+            margin:0 auto;
+            height: 2em;
+            width: 2em;
+         }
+      }
+   }
+}
+
+#photo-container{
+   text-align: center;
+   #me{
+      height: 100%;
+      max-height: 15em;
+      max-width: 15em;
+      width: 100%;  
+   }
+}
+
+#presentation-container{
+   text-align: justify;
+   #timeline{
+      position: relative;
+      left: -(@timeline_width / 2);
+      border-left: @timeline_width solid red;
+   }
+}
+
+#experience-column{
+   background: red;
+}
+
+#project-column{
+   background: green;
+}
+
+#main-content-container{
+   .column-identifier{
+      text-align: center;
+   }
+   #left-column,#right-column{
+      .display-pane{
+         #datestring{
+
+         }
+         #title{
+
+         }
+         #location{
+
+         }
+         #city{
+
+         }
+         #description{
+         }
+      }
+   }
+   #left-column{
+      .display-pane{
+         padding:0.5em;
+         .arrow-right(@display-panePrimary_color, @display-paneSecondary_color);
+         position: relative;
+      }
+   }
+
+   #right-column{
+      .display-pane{
+         .arrow-left(@display-panePrimary_color, @display-paneSecondary_color);
+         padding:0.5em;
+         position: relative;
+      }
+      
+   }
+   #timeline-column{
+      #timeline-items{
+         background: rgba(0,100,100,0.2);
+         #timeline{
+            position: relative;
+            border-left:@timeline_width solid red;
+         }
+         #timebar{
+            .timebar-item{
+               height: 0;
+               width: 0;
+               position: relative;
+               left:-1em;
+            }
+         }
+         #ruler{
+            box-shadow: 1px 1px 1px black inse;
+            // &:before{
+            //    position: absolute;
+            //    left:-1em;
+            //    content:'';
+
+            // }
+
+            .ruler-tick{
+               position: absolute;
+               color:red;
+            }
+            .year-start{
+               color:blue;
+               // width:1em;
+               &:before{
+                  content:'';
+                  top:50%;
+                  position:absolute;
+                  border-top: 1px solid blue;
+                  width: 0.75em;
+                  
+               }
+            }
+         }
+         #milestone-node-container{
+            .project{
+               left: -3em;
+               .circle(2em, rgba(0,200,0,0.5));
+            }
+            .experience{
+               left: -3em;
+               // left: -3em;
+               .circle(2em, rgba(200,0,0,0.5));
+            }
+
+            .milestone-node{
+               position: relative;
+            }
+         }
+         
+      }
+      #timespan-experience{
+         .timespan-container{
+            position:relative;
+            height: 0;
+            width: 15px;
+            background: rgba(0,0,0,0.2);
+         }
+      }
+      #timespan-project{
+         .timespan-container{
+            height: 0;
+            position: relative;
+            width: 15px;
+            background: rgba(0,0,0,0.2);
+         }
+      }
+   }
+}
+

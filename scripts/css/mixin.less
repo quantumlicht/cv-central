@@ -1,0 +1,158 @@
+.rounded-corners (@radius: 5px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  -ms-border-radius: @radius;
+  -o-border-radius: @radius;
+  border-radius: @radius;
+}
+
+.gradient(@color, @endcolor){
+   background: @color; /* Old browsers */
+   background: -moz-linear-gradient(top, @color 25%, @endcolor 100%); /* FF3.6+ */
+   background: -webkit-gradient(linear, left top, left bottom, color-stop(25%,@color), color-stop(100%,@endcolor)); /* Chrome,Safari4+ */
+   background: -webkit-linear-gradient(top, @color 25%,@endcolor 100%); /* Chrome10+,Safari5.1+ */
+   background: -o-linear-gradient(top, @color 25%,@endcolor 100%); /* Opera 11.10+ */
+   background: -ms-linear-gradient(top, @color 25%,@endcolor 100%); /* IE10+ */
+   background: linear-gradient(to bottom, @color 25%,@endcolor 100%); /* W3C */
+   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb121', endColorstr='#dbba29',GradientType=0 ); /* IE6-9 */
+}
+
+
+.clear{
+   clear:both;
+}
+
+.hide{
+   visibility:visible;
+   opacity: 0;
+}
+
+
+.button-link(@color) {
+   background: @color;
+   -webkit-border-radius: 4px;
+   -moz-border-radius: 4px;
+   border-radius: 4px;
+   border: solid 1px darken(@color, 20%);
+   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+   -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+   -webkit-transition-duration: 0.2s;
+   -moz-transition-duration: 0.2s;
+   transition-duration: 0.2s;
+   -webkit-user-select:none;
+   -moz-user-select:none;
+   -ms-user-select:none;
+   user-select:none;
+   
+   &:hover {
+      background: lighten(@color, 5%);
+      border: solid 1px lighten(@color, 5%);
+      text-decoration: none;
+   }
+
+   &:active {
+      -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+      -moz-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+      box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+      background: spin(@color,10);
+      border: solid 1px darken(@color,5%);
+   }
+}
+
+.halfCircleRight(@diameter){
+  height:@diameter;
+  width:@diameter/2;
+  border-radius: 0 @diameter @diameter 0;
+  -moz-border-radius: 0 @diameter @diameter 0;
+  -webkit-border-radius:  0 @diameter @diameter 0;
+}
+
+.halfCircleLeft(@diameter){
+  height:@diameter;
+  width:@diameter/2;
+  border-radius: @diameter 0 0 @diameter;
+  -moz-border-radius: @diameter 0 0 @diameter;
+  -webkit-border-radius: @diameter 0 0 @diameter;
+}
+
+.circle (@diameter: 10px; @color:green) {
+  background: @color;
+  border-radius: 50%;
+  width: @diameter;
+  height: @diameter; 
+}
+
+.arrow-right(@prim; @sec){
+  box-shadow: inset 0px 1px 1px rgba(0,0,0,0.05);
+  position: relative;
+  background: @prim;
+  border: 0.15em solid @sec;
+  border-radius: 4px;
+  
+  &:after, &:before {
+    background: transparent;
+    left: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  &:after {
+    background: transparent;
+    border-left-color:@prim;
+    border-width: 2em;
+    top: 50%;
+    margin-top: -2em;
+  }
+  &:before {
+    background: transparent;
+    border-left-color: @sec;
+    border-width: 2.15em;
+    top: 50%;
+    margin-top: -2.15em;
+  }
+}
+
+.arrow-left(@prim;@sec) {
+  box-shadow: inset 0px 1px 1px rgba(0,0,0,0.05);
+  position: relative;
+  background: @prim;
+  border: 0.15em solid @sec;
+  border-radius: 4px;
+  &:after, &:before {
+    right: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+  &:after {
+    background: transparent;
+    border-right-color: @prim;
+    border-width: 2em;
+    top: 50%;
+    margin-top: -2em;
+  }
+  &:before {
+    background: transparent;
+    border-right-color: @sec;
+    border-width: 2.15em;
+    top: 50%;
+    margin-top: -2.15em;
+  }
+}
+
+
+.contactpos {
+  @media (min-width: @screen-desktop){
+    position: fixed;
+    top: 40%;
+  }
+}
